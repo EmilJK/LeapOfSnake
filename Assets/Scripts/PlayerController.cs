@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,19 +16,31 @@ public class PlayerController : MonoBehaviour
     public float swipePower = 15f;
     public float maxXVelocity = 1;
     public float cdSet = 1;
-    public float jumpCD, swipeCD;    
+    public float jumpCD, swipeCD;
     //float dirX;
 
+    public string dir;
+
+    Animator snakeAnim;
+
     bool canSwipe, canJump;
+    bool canHurt = true;
+    bool inSwipe = false;
+    bool jumping = false;
     #endregion
 
+    public GridMover gridMover;
+    GameObject currentRoom;
+    public Image hpBar;
+    public Sprite hpFull, hpTwo, hpOne, hpZero;
     public Rigidbody2D rb;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        //rb.gravityScale = playerGravity;
+        snakeAnim = GetComponent<Animator>();
 
-        playerHP = 1;
+        playerHP = 3;
+        dir = "Down";
 
         jumpCD = cdSet; swipeCD = cdSet;
     }
@@ -56,11 +69,12 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            gameManager.resetScene();
+            gameManager.ResetScene();
         }
 #endif
-        if(playerHP <=0)
-            gameManager.resetScene();
+        HealthFunction();
+        PlayAnim();
+
     }
 
     private void FixedUpdate()
@@ -70,18 +84,78 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(-rb.velocity * velocityDamp); //Damps the velocity of the player
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        
+        if(inSwipe && collision.gameObject.tag == "Enemy")
         {
-            playerHP--;
+            if (collision.gameObject.GetComponent<MouseAi>() && playerHP <3)
+            {
+                collision.gameObject.GetComponent<MouseAi>().EatMe();
+            }
+            Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.tag == "Enemy" && canHurt || collision.gameObject.tag == "Obstacle" && canHurt)
+        {
+            TakeDmg();
+            canHurt = false;
+            Invoke("CanHurtAgain", 2f);
+        }
+
+        if(collision.gameObject.tag == "Room")
+        {
+            currentRoom = collision.gameObject;
+            gridMover.MoveGrid(currentRoom);
+        }
+    }
+    void CanHurtAgain()
+    {
+        canHurt = true;
+    }
+
+    public void TakeDmg()
+    {
+
+        playerHP--;
+        switch (dir)
+        {
+            case "Down":
+                rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+                break;
+            case "Up":
+                rb.AddForce(new Vector2(0, -jumpHeight), ForceMode2D.Impulse);
+                break;
+            case "Left":
+                rb.velocity = new Vector2(0, 0);
+                rb.AddForce(new Vector2(jumpHeight / 2, jumpHeight / 2), ForceMode2D.Impulse);
+                break;
+            case "Right":
+                rb.velocity = new Vector2(0, 0);
+                rb.AddForce(new Vector2(-jumpHeight / 2, jumpHeight / 2), ForceMode2D.Impulse);
+                break;
+
+        }
+
+    }
+
+    void PlayAnim()
+    {
+        snakeAnim.SetBool("DoHurt", !canHurt);
+        snakeAnim.SetBool("Jumping", jumping);
+    }
+
+    private void SetDirDown()
+    {
+        dir = "Down";
+        jumping = false;
     }
 
     private void CooldownTimer()
     {
         if (jumpCD <= 0)
+        {
             canJump = true;
+        }
         else
             jumpCD -= Time.deltaTime;
 
@@ -95,29 +169,100 @@ public class PlayerController : MonoBehaviour
     {
         if (canJump)
         {
+            SoundManager.PlaySound("sfx_Snake_jump");
             rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
             jumpCD = cdSet;
             canJump = false;
+
+            jumping = true;
+            dir = "Up";
+            Invoke("SetDirDown", 1f);
         }
-        
+
     }
 
     public void SwipeRight()
     {
         if (canSwipe)
         {
+            SoundManager.PlaySound("sfx_Snake_attack");
             rb.velocity += new Vector2(swipePower, 0);
             swipeCD = cdSet;
             canSwipe = false;
+
+            dir = "Right";
+            inSwipe = true;
+
+            StartCoroutine(SwipeRotation(true));
         }
     }
     public void SwipeLeft()
     {
         if (canSwipe)
         {
+            SoundManager.PlaySound("sfx_Snake_attack");
             rb.velocity += new Vector2(-swipePower, 0);
             swipeCD = cdSet;
             canSwipe = false;
+
+            dir = "Left";
+            inSwipe = true;
+
+            StartCoroutine(SwipeRotation(false));
+
+        }
+    }
+
+    public IEnumerator SwipeRotation(bool isRight)
+    {
+        if (isRight)
+        {
+            while (rb.velocity.x >= 10)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+                yield return new WaitForSeconds(0.01f);
+            }
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            //dir = "Down";
+            yield return null;
+        }
+        else
+        {
+            while (rb.velocity.x <= -10)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, -90);
+                yield return new WaitForSeconds(0.01f);
+            }
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            //dir = "Down";
+            yield return null;
+        }
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        dir = "Down";
+        inSwipe = false;
+        yield return null;
+    }
+
+    public void HealthFunction()
+    {
+
+        if (playerHP == 3)
+        {
+            hpBar.sprite = hpFull;
+        }
+        else if (playerHP == 2)
+        {
+            hpBar.sprite = hpTwo;
+        }
+        else if (playerHP == 1)
+        {
+            hpBar.sprite = hpOne;
+        }
+        else if (playerHP <= 0)
+        {
+            SoundManager.PlaySound("sfx_Snake_dying");
+            hpBar.sprite = hpZero;
+            gameManager.ResetScene();
         }
     }
 }

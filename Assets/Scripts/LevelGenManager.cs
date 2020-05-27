@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class LevelGenManager : MonoBehaviour
 {
@@ -9,11 +11,13 @@ public class LevelGenManager : MonoBehaviour
     public int currentBiomeInt;
     public Transform roomParent;
 
+    public TextMeshProUGUI depthCounter;
+
     public bool biomeChecker;
 
     //public Animator camBackground;
 
-    public enum Biomes { universe, heaven, mountain, medival, viking, roman, stoneage, iceage, mesozoic, paleozonic, hell};
+    public enum Biomes { universe, heaven, mountain, medival, viking, roman, stoneage, iceage, mesozoic, paleozonic, hell };
     public Biomes currentBiome = Biomes.heaven;
 
     public GameObject[] roomsToGenerateNow;
@@ -29,7 +33,7 @@ public class LevelGenManager : MonoBehaviour
     public GameObject[] roomsPaleozonic;
     public GameObject[] roomsHell;
     public GameObject[] roomsUniverse;
-    
+
 
     public List<GameObject> rooms = new List<GameObject>();
 
@@ -62,6 +66,8 @@ public class LevelGenManager : MonoBehaviour
         roomsVisited = 0;
         roomsBiomeCounter = 0;
         currentBiomeInt = 1;
+
+        //depthCounter = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -70,6 +76,8 @@ public class LevelGenManager : MonoBehaviour
         AssignBiomes();
         BiomeCounter();
         //camBackground.SetInteger("CurrentBiome", currentBiomeInt);
+
+        depthCounter.text = "Depth: " + roomsVisited;
     }
 
     public void AssignBiomes()
@@ -160,13 +168,13 @@ public class LevelGenManager : MonoBehaviour
 
     public void BiomeCounter()
     {
-        if(roomsBiomeCounter >= 10)
+        if (roomsBiomeCounter >= 10)
         {
-            if(currentBiome == Biomes.hell)
+            if (currentBiome == Biomes.hell)
             {
                 biomeChecker = false;
             }
-            else if(currentBiome == Biomes.universe)
+            else if (currentBiome == Biomes.universe)
             {
                 biomeChecker = true;
             }
@@ -175,7 +183,7 @@ public class LevelGenManager : MonoBehaviour
             {
                 currentBiome++;
             }
-            else if(!biomeChecker)
+            else if (!biomeChecker)
             {
                 currentBiome--;
             }
@@ -187,14 +195,29 @@ public class LevelGenManager : MonoBehaviour
     //Returns a new random "room" to instansiate from the RoomCollider script
     public GameObject NewRoom()
     {
-        int randRoom;
-        randRoom = Random.Range(0, roomsToGenerateNow.Length);
-        GameObject newRoom;
+        if (currentBiomeInt < 3)
+        {
+            int randRoom;
+            randRoom = Random.Range(0, 5);
+            GameObject newRoom;
 
-        newRoom = roomsToGenerateNow[randRoom];
-        roomsVisited++;
-        roomsBiomeCounter++;
-        return newRoom;
+            newRoom = roomsToGenerateNow[randRoom];
+            roomsVisited++;
+            roomsBiomeCounter++;
+            return newRoom;
+        }
+        else
+        {
+            int randRoom;
+            randRoom = Random.Range(0, roomsToGenerateNow.Length);
+            GameObject newRoom;
+
+            newRoom = roomsToGenerateNow[randRoom];
+            roomsVisited++;
+            roomsBiomeCounter++;
+            return newRoom;
+
+        }
     }
 
     public void RemoveARoom(GameObject addToList)
