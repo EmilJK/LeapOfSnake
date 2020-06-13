@@ -32,7 +32,7 @@ public class PlantAi : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
+        SoundManager.PlaySound("sfx__Plant_attack01");
         fireCd = cdSet;
         canShoot = false;
     }

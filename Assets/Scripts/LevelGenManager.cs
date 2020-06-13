@@ -10,8 +10,9 @@ public class LevelGenManager : MonoBehaviour
     public int roomsBiomeCounter;
     public int currentBiomeInt;
     public Transform roomParent;
+    public AudioSource ambxAudio;
 
-    public TextMeshProUGUI depthCounter;
+    public TextMeshProUGUI depthCounter, depthScore;
 
     public bool biomeChecker;
 
@@ -34,6 +35,7 @@ public class LevelGenManager : MonoBehaviour
     public GameObject[] roomsHell;
     public GameObject[] roomsUniverse;
 
+    public AudioClip[] ambxClips;
 
     public List<GameObject> rooms = new List<GameObject>();
 
@@ -73,11 +75,13 @@ public class LevelGenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ambxAudio.clip = ambxClips[currentBiomeInt];
         AssignBiomes();
         BiomeCounter();
         //camBackground.SetInteger("CurrentBiome", currentBiomeInt);
 
         depthCounter.text = "Depth: " + roomsVisited;
+        depthScore.text = "Your Score: \n" +  + roomsVisited;
     }
 
     public void AssignBiomes()
@@ -187,11 +191,15 @@ public class LevelGenManager : MonoBehaviour
             {
                 currentBiome--;
             }
-
+            Invoke("PlayAmbx", 1f);
             roomsBiomeCounter = 0;
         }
     }
 
+    public void PlayAmbx()
+    {
+        ambxAudio.Play();
+    }
     //Returns a new random "room" to instansiate from the RoomCollider script
     public GameObject NewRoom()
     {

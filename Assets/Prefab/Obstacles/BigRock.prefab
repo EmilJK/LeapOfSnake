@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5884407407158961002}
   - component: {fileID: 4825728221342354387}
   - component: {fileID: 844482104376078860}
+  - component: {fileID: 1699003153684386727}
   m_Layer: 8
   m_Name: BigRock
   m_TagString: Obstacle
@@ -108,3 +109,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.443377, y: 3.5121117}
   m_EdgeRadius: 0
+--- !u!114 &1699003153684386727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883619254693656235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c2e18e0f1c3ef4582da958a417d3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

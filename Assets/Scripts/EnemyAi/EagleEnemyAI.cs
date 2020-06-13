@@ -29,6 +29,7 @@ public class EagleEnemyAI : MonoBehaviour
         desSetter = GetComponent<AIDestinationSetter>();
 
         //play Eagle arrival AMERICA sound! 
+        
     }
 
     void Update()
@@ -36,7 +37,7 @@ public class EagleEnemyAI : MonoBehaviour
         switch (myState)
         {
             case EagleState.towardsPlayer:
-                StartCoroutine(Towards());
+                StartCoroutine(Towards());               
                 break;
             case EagleState.awayPlayer:
                 StartCoroutine(Away());
@@ -52,7 +53,6 @@ public class EagleEnemyAI : MonoBehaviour
         point.y = Random.Range(greenBox.bounds.min.y, greenBox.bounds.max.y);
         eaglePoint.position = new Vector2(point.x, point.y);
         desSetter.target = eaglePoint;
-
         while (!aPath.reachedEndOfPath)
         {
             yield return new WaitForSeconds(0.1f);

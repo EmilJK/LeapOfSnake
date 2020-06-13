@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
     public static bool rightMode = false;
 
-    public GameObject pauseMenuUI, settingsMenuUI;
+    public GameObject pauseMenuUI, settingsMenuUI, deathMenuUI;
     public GameObject gameUI;
     public GameObject buttonL, buttonR;
 
@@ -59,8 +59,15 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
+    public void DeathScreen()
+    {
+        deathMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        gameIsPaused = true;
+    }
     public void MainMenu()
     {
+        Time.timeScale = 1f;
         gameManager.MainMenuScene();
     }
     public void Restart()
@@ -93,6 +100,20 @@ public class PauseMenu : MonoBehaviour
             rightMode = false;
         }
         else
+        {
+            rightMode = true;
+        }
+    }
+    public void SwapToLeftMode()
+    {
+        if (rightMode)
+        {
+            rightMode = false;
+        }
+    }
+    public void SwapToRightMode()
+    {
+        if (!rightMode)
         {
             rightMode = true;
         }

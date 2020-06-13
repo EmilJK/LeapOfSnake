@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 2097374042075698221}
   - component: {fileID: 7163378220564856865}
   - component: {fileID: 155267324753274858}
+  - component: {fileID: 1411133953308664117}
+  - component: {fileID: 6796347983819164864}
   m_Layer: 0
   m_Name: PoisonplantEnemy
   m_TagString: Obstacle
@@ -105,7 +107,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 27aae832994db354ea3c9a9016ae5c2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bea5f116ced770f489747b29cee37207, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,7 +189,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 23.88, y: 16.685682}
+    oldSize: {x: 23.88, y: 16.697344}
     newSize: {x: 23.88, y: 16.685682}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -618,3 +620,34 @@ PolygonCollider2D:
       - {x: -4.803984, y: -4.8214746}
       - {x: -4.8156443, y: -4.8331347}
       - {x: -4.8972654, y: -4.8331347}
+--- !u!95 &1411133953308664117
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622101575050123844}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 080baeca153ce6942b41a0ef7a4f1399, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6796347983819164864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622101575050123844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5be319b30873c147a50e0b19489d3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 285932064313266355, guid: dd82bcb4e6e33e548bf5078e652deef2,
+        type: 3}
+      propertyPath: timer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2035928470034761770, guid: dd82bcb4e6e33e548bf5078e652deef2,
         type: 3}
       propertyPath: m_Color.r

@@ -7,6 +7,11 @@ public class EagleAi : MonoBehaviour
 {
     public AIPath aiPath;
 
+
+    private void Start()
+    {
+        //SoundManager.PlaySound("sfx_Eagle_attack");
+    }
     void Update()
     {
         if(aiPath.desiredVelocity.x >= 0.01f)

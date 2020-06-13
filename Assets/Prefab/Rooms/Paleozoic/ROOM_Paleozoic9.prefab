@@ -280,6 +280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7687680607231340663}
+  - component: {fileID: -3072720618656438915}
   m_Layer: 0
   m_Name: ROOM_Paleozoic9
   m_TagString: Room
@@ -309,6 +310,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &-3072720618656438915
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5364580751684979560}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.07063866, y: 11.6}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.07, y: 40.04}
+  m_EdgeRadius: 0
 --- !u!1 &6587633890142280438
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +536,7 @@ PrefabInstance:
     - target: {fileID: 917013407061136451, guid: c86d8e9fcde8dce4a9f4c24023d2a881,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.75
+      value: -5.62
       objectReference: {fileID: 0}
     - target: {fileID: 917013407061136451, guid: c86d8e9fcde8dce4a9f4c24023d2a881,
         type: 3}
@@ -584,7 +611,7 @@ PrefabInstance:
     - target: {fileID: 917013407061136451, guid: c86d8e9fcde8dce4a9f4c24023d2a881,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.76
+      value: 5.47
       objectReference: {fileID: 0}
     - target: {fileID: 917013407061136451, guid: c86d8e9fcde8dce4a9f4c24023d2a881,
         type: 3}

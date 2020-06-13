@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        //Time.timeScale = 1f;
     }
 
     public void ResetScene()
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartScene()
     {
-        SceneManager.LoadScene("TestingGrounds");
+        SceneManager.LoadScene("GameScene");
     }
     public void MainMenuScene()
     {

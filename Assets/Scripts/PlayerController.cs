@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public GameManager gameManager;
+    public PauseMenu menuManager;
+
     #region Player Info
     [Header("Player Values")]
     public int playerHP = 1;
@@ -94,6 +96,7 @@ public class PlayerController : MonoBehaviour
                 collision.gameObject.GetComponent<MouseAi>().EatMe();
             }
             Destroy(collision.gameObject);
+            SoundManager.PlaySound("sfx_Enemy_dying");
         }
         else if (collision.gameObject.tag == "Enemy" && canHurt || collision.gameObject.tag == "Obstacle" && canHurt)
         {
@@ -101,6 +104,7 @@ public class PlayerController : MonoBehaviour
             canHurt = false;
             Invoke("CanHurtAgain", 2f);
         }
+
 
         if(collision.gameObject.tag == "Room")
         {
@@ -115,7 +119,6 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDmg()
     {
-
         playerHP--;
         switch (dir)
         {
@@ -142,6 +145,7 @@ public class PlayerController : MonoBehaviour
     {
         snakeAnim.SetBool("DoHurt", !canHurt);
         snakeAnim.SetBool("Jumping", jumping);
+        snakeAnim.SetBool("Swiping", inSwipe);
     }
 
     private void SetDirDown()
@@ -262,7 +266,10 @@ public class PlayerController : MonoBehaviour
         {
             SoundManager.PlaySound("sfx_Snake_dying");
             hpBar.sprite = hpZero;
-            gameManager.ResetScene();
+
+            this.gameObject.SetActive(false);
+            menuManager.DeathScreen();
+            //gameManager.ResetScene();
         }
     }
 }

@@ -27,5 +27,10 @@ public class BatAi : MonoBehaviour
                 movingRight = true;
             }
         }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            SoundManager.PlaySound("sfx_Bat_attack");
+        }
     }
 }
