@@ -12,7 +12,9 @@ public class LevelGenManager : MonoBehaviour
     public Transform roomParent;
     public AudioSource ambxAudio;
 
-    public TextMeshProUGUI depthCounter, depthScore;
+    GeneralSettings jsonScript;
+
+    public TextMeshProUGUI depthCounter, depthScore, depthHighScore;
 
     public bool biomeChecker;
 
@@ -65,6 +67,8 @@ public class LevelGenManager : MonoBehaviour
 
     void Start()
     {
+        jsonScript = FindObjectOfType<GeneralSettings>();
+
         roomsVisited = 0;
         roomsBiomeCounter = 0;
         currentBiomeInt = 1;
@@ -81,7 +85,8 @@ public class LevelGenManager : MonoBehaviour
         //camBackground.SetInteger("CurrentBiome", currentBiomeInt);
 
         depthCounter.text = "Depth: " + roomsVisited;
-        depthScore.text = "Your Score: \n" +  + roomsVisited;
+        depthScore.text = "Your Score: \n" + roomsVisited;
+        depthHighScore.text = "Your Score: \n" + jsonScript.highScore;
     }
 
     public void AssignBiomes()

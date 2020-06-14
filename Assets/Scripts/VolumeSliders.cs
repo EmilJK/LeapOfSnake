@@ -19,14 +19,14 @@ public class VolumeSliders : MonoBehaviour
         if (isMusicSlider)
         {
             audioMixer.GetFloat("Music", out volume);
-            Debug.Log(volume);
+            //Debug.Log(volume);
             mySlider.value = volume;
 
         }
         else
         {
             audioMixer.GetFloat("SFX", out volume);
-            Debug.Log(volume);
+            //Debug.Log(volume);
             mySlider.value = volume;
         }
     }

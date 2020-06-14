@@ -30,7 +30,7 @@ public class CountdownTimer : MonoBehaviour
         Number1();
         yield return new WaitForSeconds(1f);
         StartGame();
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(1f);
         jump.SetActive(false);
         //Remember the JUMP!!
         yield return null;

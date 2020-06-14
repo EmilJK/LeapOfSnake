@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  menuManager: {fileID: 0}
   playerHP: 3
   playerGravity: 0.2
   velocityDamp: 1
@@ -110,7 +111,13 @@ MonoBehaviour:
   cdSet: 1.5
   jumpCD: 0
   swipeCD: 0
+  trailType:
+  - {fileID: 0}
+  - {fileID: 1050133331318342401, guid: 3c8a9e228d2038c479708df0fc048fba, type: 3}
+  - {fileID: 5925776653826062613, guid: b65d369c0ed36ca439bfedcc14939b25, type: 3}
+  - {fileID: 2195366462992782700, guid: 1cc5f37709c88f04fb0d4fdbb2827da5, type: 3}
   dir: 
+  bloodParticles: {fileID: 0}
   gridMover: {fileID: 0}
   hpBar: {fileID: 0}
   hpFull: {fileID: 21300000, guid: fd5da8d848ebb18438f3a6d50439ea81, type: 3}

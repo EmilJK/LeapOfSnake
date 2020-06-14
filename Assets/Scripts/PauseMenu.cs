@@ -5,17 +5,24 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-
     public static bool gameIsPaused = false;
     public static bool rightMode = false;
 
-    public GameObject pauseMenuUI, settingsMenuUI, deathMenuUI, shopMenuUI;
+    public GameObject pauseMenuUI, settingsMenuUI, deathMenuUI, shopMenuUI, controlsMenuUI;
     public GameObject gameUI;
     public GameObject buttonL, buttonR;
+    public Button trailOne, trailTwo, trailThree, deselectTrail;
 
     public GameManager gameManager;
+    GeneralSettings jsonScript;
     public Button leftButton, rightButton;
 
+    private void Awake()
+    {
+        jsonScript = FindObjectOfType<GeneralSettings>();
+
+        rightMode = jsonScript.isRight;
+    }
 
     // Update is called once per frame
     void Update()
@@ -50,6 +57,35 @@ public class PauseMenu : MonoBehaviour
             rightButton.interactable = (false);
             leftButton.interactable = (true);
         }
+
+        if (trailOne != null)
+        {
+            switch (jsonScript.selectedTrail)
+            {
+                case 1:
+                    trailOne.interactable = (false);
+                    trailTwo.interactable = (true);
+                    trailThree.interactable = (true);
+                    break;
+                case 2:
+                    trailOne.interactable = (true);
+                    trailTwo.interactable = (false);
+                    trailThree.interactable = (true);
+                    break;
+                case 3:
+                    trailOne.interactable = (true);
+                    trailTwo.interactable = (true);
+                    trailThree.interactable = (false);
+                    break;
+                case 0:
+                    trailOne.interactable = (true);
+                    trailTwo.interactable = (true);
+                    trailThree.interactable = (true);
+                    break;
+            }
+
+        }
+
 
     }
 
@@ -97,6 +133,16 @@ public class PauseMenu : MonoBehaviour
     {
         shopMenuUI.SetActive(true);
     }
+    public void ControlsMenu()
+    {
+        controlsMenuUI.SetActive(true);
+        settingsMenuUI.SetActive(false);
+    }
+    public void BackFromControls()
+    {
+        controlsMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(true);
+    }
     public void BackToPause()
     {
         pauseMenuUI.SetActive(true);
@@ -107,23 +153,15 @@ public class PauseMenu : MonoBehaviour
         settingsMenuUI.SetActive(false);
         shopMenuUI.SetActive(false);
     }
-    public void SwapLRMode()
-    {
-        if (rightMode)
-        {
-            rightMode = false;
-        }
-        else
-        {
-            rightMode = true;
-        }
-    }
+
     public void SwapToLeftMode()
     {
         if (rightMode)
         {
             rightMode = false;
 
+            jsonScript.isRight = rightMode;
+            jsonScript.SaveSettings();
             //rightButton.interactable = (false);
             //leftButton.interactable = (true);
         }
@@ -134,8 +172,31 @@ public class PauseMenu : MonoBehaviour
         {
             rightMode = true;
 
+            jsonScript.isRight = rightMode;
+            jsonScript.SaveSettings();
             //rightButton.interactable = (true);
             //leftButton.interactable = (false);
         }
+    }
+
+    public void EquipTrailOne()
+    {
+        jsonScript.selectedTrail = 1;
+        jsonScript.SaveSettings();
+    }
+    public void EquipTrailTwo()
+    {
+        jsonScript.selectedTrail = 2;
+        jsonScript.SaveSettings();
+    }
+    public void EquipTrailThree()
+    {
+        jsonScript.selectedTrail = 3;
+        jsonScript.SaveSettings();
+    }
+    public void DeselectTrail()
+    {
+        jsonScript.selectedTrail = 0;
+        jsonScript.SaveSettings();
     }
 }

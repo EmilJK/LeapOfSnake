@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public GameManager gameManager;
     public PauseMenu menuManager;
+    LevelGenManager levelGenManager;
+    GeneralSettings jsonScript;
 
     #region Player Info
     [Header("Player Values")]
@@ -19,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public float maxXVelocity = 1;
     public float cdSet = 1;
     public float jumpCD, swipeCD;
+
+    public GameObject[] trailType;
     //float dirX;
 
     public string dir;
@@ -42,10 +46,22 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         snakeAnim = GetComponent<Animator>();
 
+        levelGenManager = FindObjectOfType<LevelGenManager>();
+        jsonScript = FindObjectOfType<GeneralSettings>();
+
+
         playerHP = 3;
         dir = "Down";
 
         jumpCD = cdSet; swipeCD = cdSet;
+    }
+
+    private void Start()
+    {       
+        if(trailType[jsonScript.selectedTrail] != null)
+        {
+            Invoke("MakeTrail", 2f);
+        }
     }
 
     void Update()
@@ -117,6 +133,11 @@ public class PlayerController : MonoBehaviour
     void CanHurtAgain()
     {
         canHurt = true;
+    }
+    
+    void MakeTrail()
+    {
+        GameObject trail = Instantiate(trailType[jsonScript.selectedTrail], transform);
     }
 
     public void TakeDmg()
@@ -271,7 +292,18 @@ public class PlayerController : MonoBehaviour
 
             this.gameObject.SetActive(false);
             menuManager.DeathScreen();
+            SaveNewHighScore();
             //gameManager.ResetScene();
+        }
+    }
+
+
+    public void SaveNewHighScore()
+    {
+        if(levelGenManager.roomsVisited >= jsonScript.highScore)
+        {
+            jsonScript.highScore = levelGenManager.roomsVisited;
+            jsonScript.SaveSettings();
         }
     }
 }

@@ -29,16 +29,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void SaveGame()
-    {
-
-    }
-    public void LoadGame()
-    {
-
-    }
-
-
     public void SetMusic(float volume)
     {
         audioMixer.SetFloat("Music", volume);
