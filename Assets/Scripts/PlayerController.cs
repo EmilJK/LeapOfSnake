@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     bool jumping = false;
     #endregion
 
+    public GameObject bloodParticles;
     public GridMover gridMover;
     GameObject currentRoom;
     public Image hpBar;
@@ -97,6 +98,7 @@ public class PlayerController : MonoBehaviour
             }
             Destroy(collision.gameObject);
             SoundManager.PlaySound("sfx_Enemy_dying");
+            GameObject particles = Instantiate(bloodParticles, collision.gameObject.transform.position, Quaternion.Euler(-90f,0f,0f));
         }
         else if (collision.gameObject.tag == "Enemy" && canHurt || collision.gameObject.tag == "Obstacle" && canHurt)
         {

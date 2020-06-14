@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,11 +9,13 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
     public static bool rightMode = false;
 
-    public GameObject pauseMenuUI, settingsMenuUI, deathMenuUI;
+    public GameObject pauseMenuUI, settingsMenuUI, deathMenuUI, shopMenuUI;
     public GameObject gameUI;
     public GameObject buttonL, buttonR;
 
     public GameManager gameManager;
+    public Button leftButton, rightButton;
+
 
     // Update is called once per frame
     void Update()
@@ -35,11 +38,17 @@ public class PauseMenu : MonoBehaviour
         {
             buttonL.SetActive(true);
             buttonR.SetActive(false);
+
+            rightButton.interactable = (true);
+            leftButton.interactable = (false);
         }
         else
         {
             buttonR.SetActive(true);
             buttonL.SetActive(false);
+
+            rightButton.interactable = (false);
+            leftButton.interactable = (true);
         }
 
     }
@@ -84,6 +93,10 @@ public class PauseMenu : MonoBehaviour
     {
         settingsMenuUI.SetActive(true);
     }
+    public void ShopMenu()
+    {
+        shopMenuUI.SetActive(true);
+    }
     public void BackToPause()
     {
         pauseMenuUI.SetActive(true);
@@ -92,6 +105,7 @@ public class PauseMenu : MonoBehaviour
     public void Back()
     {
         settingsMenuUI.SetActive(false);
+        shopMenuUI.SetActive(false);
     }
     public void SwapLRMode()
     {
@@ -109,6 +123,9 @@ public class PauseMenu : MonoBehaviour
         if (rightMode)
         {
             rightMode = false;
+
+            //rightButton.interactable = (false);
+            //leftButton.interactable = (true);
         }
     }
     public void SwapToRightMode()
@@ -116,6 +133,9 @@ public class PauseMenu : MonoBehaviour
         if (!rightMode)
         {
             rightMode = true;
+
+            //rightButton.interactable = (true);
+            //leftButton.interactable = (false);
         }
     }
 }

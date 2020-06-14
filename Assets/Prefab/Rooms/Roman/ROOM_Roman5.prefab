@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1276636294989554343}
   - component: {fileID: 8784191398655820989}
   - component: {fileID: 2932978930665704143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkyWall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7687680607231340663}
   - component: {fileID: -2027006410895127600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ROOM_Roman5
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 433795362605214955}
   - component: {fileID: 8787668936698388852}
   - component: {fileID: 1205497520796861331}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkyWall (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -345,6 +345,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrystalhogEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4459242315755951620, guid: 98e1b18da3f68dd47b89fbff89e77cd6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98e1b18da3f68dd47b89fbff89e77cd6, type: 3}
 --- !u!4 &2841481860192635501 stripped
@@ -420,6 +425,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrystalhogEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4459242315755951620, guid: 98e1b18da3f68dd47b89fbff89e77cd6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98e1b18da3f68dd47b89fbff89e77cd6, type: 3}
 --- !u!4 &7666609674645187060 stripped
@@ -439,6 +449,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoomCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636155788138250376, guid: 262c56c9409cc364e9a84ac9d65fb45d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7052398435034125694, guid: 262c56c9409cc364e9a84ac9d65fb45d,
         type: 3}
@@ -494,6 +509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108823247127261598, guid: 262c56c9409cc364e9a84ac9d65fb45d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262c56c9409cc364e9a84ac9d65fb45d, type: 3}

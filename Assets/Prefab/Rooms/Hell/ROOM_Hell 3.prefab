@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3727334329913908987}
   - component: {fileID: 6383754731770508097}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1276636294989554343}
   - component: {fileID: 8784191398655820989}
   - component: {fileID: 2932978930665704143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkyWall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9150605076326421501}
   - component: {fileID: 8108279110721376236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7687680607231340663}
   - component: {fileID: 5131934362776357263}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ROOM_Hell 3
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 433795362605214955}
   - component: {fileID: 8787668936698388852}
   - component: {fileID: 1205497520796861331}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkyWall (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -456,6 +456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BatEnemy_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891573721186653131, guid: 3f885392b3e0ac04c92aec1efde7ef3e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8552048131471892092, guid: 3f885392b3e0ac04c92aec1efde7ef3e,
         type: 3}
@@ -682,6 +687,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatEnemy_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1891573721186653131, guid: 3f885392b3e0ac04c92aec1efde7ef3e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8552048131471892092, guid: 3f885392b3e0ac04c92aec1efde7ef3e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -757,6 +767,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 3636155788138250376, guid: 262c56c9409cc364e9a84ac9d65fb45d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7052398435034125694, guid: 262c56c9409cc364e9a84ac9d65fb45d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -811,6 +826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108823247127261598, guid: 262c56c9409cc364e9a84ac9d65fb45d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262c56c9409cc364e9a84ac9d65fb45d, type: 3}

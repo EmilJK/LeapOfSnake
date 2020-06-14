@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public GameObject countdown1, countdown2, countdown3;
+    public GameObject countdown1, countdown2, countdown3, jump;
+    public PlayerController player;
 
     void Start()
     {
-        //Time.timeScale = 1f;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        
         Countdown();
     }
 
     public void Countdown()
     {
+        player.enabled = (false);
+        player.GetComponent<Rigidbody2D>().gravityScale = 0f;
         StartCoroutine(Counting());
     }
 
@@ -26,7 +30,9 @@ public class CountdownTimer : MonoBehaviour
         Number1();
         yield return new WaitForSeconds(1f);
         StartGame();
-
+        yield return new WaitForSeconds(0.75f);
+        jump.SetActive(false);
+        //Remember the JUMP!!
         yield return null;
     }
 
@@ -47,6 +53,8 @@ public class CountdownTimer : MonoBehaviour
     void StartGame()
     {
         countdown1.SetActive(false);
-        Time.timeScale = 1f;
+        jump.SetActive(true);
+        player.enabled = (true);
+        player.GetComponent<Rigidbody2D>().gravityScale = 1f;
     }
 }

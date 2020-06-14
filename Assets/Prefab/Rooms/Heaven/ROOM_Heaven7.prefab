@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8784191398655820989}
   - component: {fileID: 2932978930665704143}
   - component: {fileID: 2472673005336861984}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkyWall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7687680607231340663}
   - component: {fileID: 3335409258428719606}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ROOM_Heaven7
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 8787668936698388852}
   - component: {fileID: 1205497520796861331}
   - component: {fileID: 3923084625813487919}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkyWall (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -338,6 +338,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7687680607231340663}
     m_Modifications:
+    - target: {fileID: 344376173090566091, guid: c38e14121b0a9184891d90bcebf50f18,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 547788421912208576, guid: c38e14121b0a9184891d90bcebf50f18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -398,6 +403,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eagle
       objectReference: {fileID: 0}
+    - target: {fileID: 547788421912208589, guid: c38e14121b0a9184891d90bcebf50f18,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c38e14121b0a9184891d90bcebf50f18, type: 3}
 --- !u!4 &5861991696237370827 stripped
@@ -417,6 +427,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoomCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636155788138250376, guid: 262c56c9409cc364e9a84ac9d65fb45d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7052398435034125694, guid: 262c56c9409cc364e9a84ac9d65fb45d,
         type: 3}
@@ -472,6 +487,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108823247127261598, guid: 262c56c9409cc364e9a84ac9d65fb45d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262c56c9409cc364e9a84ac9d65fb45d, type: 3}
