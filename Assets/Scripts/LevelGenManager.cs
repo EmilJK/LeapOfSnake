@@ -86,7 +86,7 @@ public class LevelGenManager : MonoBehaviour
 
         depthCounter.text = "Depth: " + roomsVisited;
         depthScore.text = "Your Score: \n" + roomsVisited;
-        depthHighScore.text = "Your Score: \n" + jsonScript.highScore;
+        depthHighScore.text = "Your Highscore: \n" + jsonScript.highScore;
     }
 
     public void AssignBiomes()
