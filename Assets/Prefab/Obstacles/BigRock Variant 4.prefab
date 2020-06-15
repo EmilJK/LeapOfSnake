@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 4953873691334991080, guid: 5c9a409c5d537ed4586219e5da6631b7,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6336074859872760913, guid: 5c9a409c5d537ed4586219e5da6631b7,
         type: 3}
@@ -187,7 +187,7 @@ PrefabInstance:
     - target: {fileID: 9011469186509660560, guid: 5c9a409c5d537ed4586219e5da6631b7,
         type: 3}
       propertyPath: m_Name
-      value: BigRock Variant 2
+      value: BigRock Variant 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c9a409c5d537ed4586219e5da6631b7, type: 3}

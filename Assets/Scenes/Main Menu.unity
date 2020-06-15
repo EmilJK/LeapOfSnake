@@ -4042,10 +4042,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1685117014}
-    - target: {fileID: 130173069, guid: 5002fa3eec2089c41ae1ad604d90a206, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
     - target: {fileID: 5045019356629308671, guid: 5002fa3eec2089c41ae1ad604d90a206,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4056,11 +4052,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1685117014}
-    - target: {fileID: 5045019356629308671, guid: 5002fa3eec2089c41ae1ad604d90a206,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
     - target: {fileID: 5045019356668270994, guid: 5002fa3eec2089c41ae1ad604d90a206,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4086,11 +4077,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1685117014}
-    - target: {fileID: 5045019356900765680, guid: 5002fa3eec2089c41ae1ad604d90a206,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
     - target: {fileID: 5045019356927844927, guid: 5002fa3eec2089c41ae1ad604d90a206,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4106,11 +4092,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1685117014}
-    - target: {fileID: 5045019357240576620, guid: 5002fa3eec2089c41ae1ad604d90a206,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
     - target: {fileID: 5045019357453746082, guid: 5002fa3eec2089c41ae1ad604d90a206,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -4159,21 +4140,6 @@ PrefabInstance:
     - target: {fileID: 5045019358282647184, guid: 5002fa3eec2089c41ae1ad604d90a206,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5045019358282647186, guid: 5002fa3eec2089c41ae1ad604d90a206,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5045019358282647186, guid: 5002fa3eec2089c41ae1ad604d90a206,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5045019358282647186, guid: 5002fa3eec2089c41ae1ad604d90a206,
-        type: 3}
-      propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5045019358282647196, guid: 5002fa3eec2089c41ae1ad604d90a206,

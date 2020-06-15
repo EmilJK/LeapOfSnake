@@ -182,12 +182,12 @@ PrefabInstance:
     - target: {fileID: 4836529223585941774, guid: 5e492662c1331fa48b81e2f5c0f79b98,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8388554824894184580, guid: 5e492662c1331fa48b81e2f5c0f79b98,
         type: 3}
       propertyPath: m_Name
-      value: SmallRock Variant 2
+      value: SmallRock Variant 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e492662c1331fa48b81e2f5c0f79b98, type: 3}

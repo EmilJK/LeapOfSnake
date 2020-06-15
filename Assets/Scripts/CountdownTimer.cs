@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CountdownTimer : MonoBehaviour
 {
     public GameObject countdown1, countdown2, countdown3, jump;
     public PlayerController player;
+    public Button pauseButtonL, pauseButtonR;
 
     void Start()
     {
@@ -23,6 +25,8 @@ public class CountdownTimer : MonoBehaviour
 
     public IEnumerator Counting()
     {
+        pauseButtonL.enabled = (false);
+        pauseButtonR.enabled = (false);
         Number3();
         yield return new WaitForSeconds(1f);
         Number2();
@@ -32,6 +36,8 @@ public class CountdownTimer : MonoBehaviour
         StartGame();
         yield return new WaitForSeconds(1f);
         jump.SetActive(false);
+        pauseButtonL.enabled = (true);
+        pauseButtonR.enabled = (true);
         //Remember the JUMP!!
         yield return null;
     }

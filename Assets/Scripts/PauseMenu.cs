@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
-    public static bool rightMode = false;
+    public static bool rightMode;
+    public static bool tutorialSeen = false;
 
     public GameObject pauseMenuUI, settingsMenuUI, deathMenuUI, shopMenuUI, controlsMenuUI;
     public GameObject gameUI;
@@ -17,11 +19,20 @@ public class PauseMenu : MonoBehaviour
     GeneralSettings jsonScript;
     public Button leftButton, rightButton;
 
-    private void Awake()
+    private void Start()
     {
         jsonScript = FindObjectOfType<GeneralSettings>();
 
         rightMode = jsonScript.isRight;
+        tutorialSeen = jsonScript.tutorialSeen;
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            if (!tutorialSeen)
+            {
+                tutorialSeen = true;
+                ControlsMenu();
+            }
+        }
     }
 
     // Update is called once per frame
@@ -49,7 +60,7 @@ public class PauseMenu : MonoBehaviour
             rightButton.interactable = (true);
             leftButton.interactable = (false);
         }
-        else
+        else if (rightMode)
         {
             buttonR.SetActive(true);
             buttonL.SetActive(false);
@@ -135,8 +146,11 @@ public class PauseMenu : MonoBehaviour
     }
     public void ControlsMenu()
     {
+        Time.timeScale = 0f;
         controlsMenuUI.SetActive(true);
         settingsMenuUI.SetActive(false);
+        jsonScript.tutorialSeen = tutorialSeen;
+        jsonScript.SaveSettings();
     }
     public void BackFromControls()
     {

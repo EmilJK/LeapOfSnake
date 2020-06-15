@@ -5,10 +5,11 @@ using System.IO;
 
 public class GeneralSettings : MonoBehaviour
 {
-    [SerializeField]
+    //[SerializeField]
     public bool isRight;
     public int highScore;
     public int selectedTrail;
+    public bool tutorialSeen;
 
 
     private void Awake()
@@ -19,6 +20,7 @@ public class GeneralSettings : MonoBehaviour
         isRight = fromSaveFile.isRight;
         highScore = fromSaveFile.highScore;
         selectedTrail = fromSaveFile.selectedTrail;
+        tutorialSeen = fromSaveFile.tutorialSeen;
     }
 
     public void SaveSettings()
@@ -27,6 +29,7 @@ public class GeneralSettings : MonoBehaviour
         toSaveFile.isRight = isRight;
         toSaveFile.highScore = highScore;
         toSaveFile.selectedTrail = selectedTrail;
+        toSaveFile.tutorialSeen = tutorialSeen;
         string json = JsonUtility.ToJson(toSaveFile);
 
         File.WriteAllText(Application.persistentDataPath + "/saveFile.json", json);
@@ -37,6 +40,7 @@ public class GeneralSettings : MonoBehaviour
         public bool isRight;
         public int highScore;
         public int selectedTrail;
+        public bool tutorialSeen;
     }
     
 }
