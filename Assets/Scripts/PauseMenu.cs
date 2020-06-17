@@ -152,6 +152,11 @@ public class PauseMenu : MonoBehaviour
         jsonScript.tutorialSeen = tutorialSeen;
         jsonScript.SaveSettings();
     }
+    public void ControlsMainMenu()
+    {
+        controlsMenuUI.SetActive(true);
+        settingsMenuUI.SetActive(false);
+    }
     public void BackFromControls()
     {
         controlsMenuUI.SetActive(false);

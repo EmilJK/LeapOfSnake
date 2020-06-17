@@ -5244,8 +5244,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0f0d1f0af69760248a9aecc068da4086, type: 3}
   mountainSprite:
   - {fileID: 21300000, guid: 8846c8ffd358b77499e89461d3a891e3, type: 3}
-  - {fileID: 21300000, guid: 958d74b769fbaa44d9b9cfd8f73d8d38, type: 3}
-  - {fileID: 21300000, guid: 462a1f4759eb7fa478dae8e2e007c668, type: 3}
+  - {fileID: 21300000, guid: a53ecbe6ee406404da1cf7c90e3dbc60, type: 3}
+  - {fileID: 21300000, guid: 0f0d1f0af69760248a9aecc068da4086, type: 3}
   medivalSprite:
   - {fileID: 21300000, guid: ee47a407fbb7f4d49a05f83a1e23fbee, type: 3}
   - {fileID: 21300000, guid: 39c62a83443277a4fb6e40dbc13ee00c, type: 3}

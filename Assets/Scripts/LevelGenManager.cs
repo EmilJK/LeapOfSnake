@@ -208,7 +208,7 @@ public class LevelGenManager : MonoBehaviour
     //Returns a new random "room" to instansiate from the RoomCollider script
     public GameObject NewRoom()
     {
-        if (currentBiomeInt < 3)
+        if (currentBiomeInt < 3 && roomsVisited < 30)
         {
             int randRoom;
             randRoom = Random.Range(0, 5);
